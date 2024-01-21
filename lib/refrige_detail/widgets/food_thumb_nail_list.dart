@@ -13,16 +13,27 @@ class FoodThumbNailList extends StatelessWidget {
     return SliverToBoxAdapter(
       child: SizedBox(
         height: 150,
-        child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemCount: samePositionFoodList.length,
-            itemBuilder: (context, index) {
-              final foodItem = samePositionFoodList[index];
-              return FoodThumbNail(
-                foodItem: foodItem,
-              );
-            }),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              flex: 8,
+              child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: samePositionFoodList.length,
+                  itemBuilder: (context, index) {
+                    final foodItem = samePositionFoodList[index];
+                    return FoodThumbNail(
+                      foodItem: foodItem,
+                    );
+                  }),
+            ),
+            Expanded(
+                child:
+                    IconButton(onPressed: () {}, icon: const Icon(Icons.add)))
+          ],
+        ),
       ),
     );
   }

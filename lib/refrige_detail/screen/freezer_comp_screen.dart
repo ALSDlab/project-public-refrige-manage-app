@@ -33,6 +33,7 @@ class _FreezerCompScreenState extends State<FreezerCompScreen> {
       sliverList
           .add(FoodThumbNailList(samePositionFoodList: samePositionFoodList));
     }
+
   }
 
   @override
